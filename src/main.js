@@ -17,7 +17,7 @@ const config = {
   },
   scene: [Preloader, Game],
   scale: {
-    zoom: 2,
+    zoom: 2.5,
   },
 };
 

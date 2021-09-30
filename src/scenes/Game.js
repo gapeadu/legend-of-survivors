@@ -5,7 +5,9 @@ export default class Game extends Phaser.Scene {
     super('game');
   }
 
-  preload() {}
+  preload() {
+    //this.load.spritesheet('warrior', 'spriteSheet/warrior.png', 20, 48);
+  }
 
   create() {
     const map = this.make.tilemap({ key: 'dungeon' });
@@ -15,21 +17,25 @@ export default class Game extends Phaser.Scene {
     const wallsLayer = map.createLayer('Walls', tileset);
     const objectsLayer = map.createLayer('objects', tileset);
 
-    wallsLayer.setCollisionByProperty({ collide: true });
+    // wallsLayer.setCollisionByProperty({ collide: true });
 
-    const debugGraphics = this.add.graphics().setAlpha(0.7);
+    // const debugGraphics = this.add.graphics().setAlpha(0.7);
 
-    wallsLayer.renderDebug(debugGraphics, {
-      tileColor: null,
-      collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
-      faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
-    });
+    // wallsLayer.renderDebug(debugGraphics, {
+    //   tileColor: null,
+    //   collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
+    //   faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
+    // });
 
-    const warrior = this.add.sprite(
-      128,
-      128,
-      'warrior',
-      'Char_two/Idle/Char2_idle_up.png'
-    );
+    const warrior = this.add.sprite(64, 64, 'warrior', 'warrior-idle-down.png');
+
+    // this.anims.create({
+    //   key: 'warrior-idle-down',
+    //   frames: this.anims.generateFrameNumbers('warrior', {
+    //     start: 24,
+    //     end: 25,
+    //   }),
+    //   repeat: -1,
+    // });
   }
 }
