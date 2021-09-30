@@ -11,8 +11,18 @@ export default class Game extends Phaser.Scene {
     const map = this.make.tilemap({ key: 'dungeon' });
     const tileset = map.addTilesetImage('dungeon3', 'tiles');
 
-    map.createStaticLayer('Ground', tileset);
-    map.createStaticLayer('Walls', tileset);
-    map.createStaticLayer('objects', tileset);
+    const groundLayer = map.createLayer('Ground', tileset);
+    const wallsLayer = map.createLayer('Walls', tileset);
+    const objectsLayer = map.createLayer('objects', tileset);
+
+    wallsLayer.setCollisionByProperty({ collide: true });
+
+    const debugGraphics = this.add.graphics().setAlpha(0.7);
+
+    wallsLayer.renderDebug(debugGraphics, {
+      tileColor: null,
+      collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
+      faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
+    });
   }
 }
