@@ -24,5 +24,12 @@ export default class Game extends Phaser.Scene {
       collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
       faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
     });
+
+    const warrior = this.add.sprite(
+      128,
+      128,
+      'warrior',
+      'Char_two/Idle/Char2_idle_up.png'
+    );
   }
 }

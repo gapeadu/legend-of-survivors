@@ -5,8 +5,15 @@ export default class Preloader extends Phaser.Scene {
     super('preloader');
   }
   preload() {
-    this.load.image('tiles', '../tiles/SmoothdungeonTileset.png');
-    this.load.tilemapTiledJSON('dungeon', '../tiles/dungeon_1.json');
+    this.load.image('tiles', 'tiles/SmoothdungeonTileset.png');
+    this.load.tilemapTiledJSON('dungeon', 'tiles/dungeon_1.json');
+
+    //load textured spritesheet
+    this.load.atlas(
+      'warrior',
+      'spriteSheet/warrior.png',
+      'spriteSheet/warrior.json'
+    );
   }
 
   create() {
