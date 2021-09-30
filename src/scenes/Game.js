@@ -13,5 +13,6 @@ export default class Game extends Phaser.Scene {
 
     map.createStaticLayer('Ground', tileset);
     map.createStaticLayer('Walls', tileset);
+    map.createStaticLayer('objects', tileset);
   }
 }
