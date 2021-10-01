@@ -5,9 +5,7 @@ export default class Game extends Phaser.Scene {
     super('game');
   }
 
-  preload() {
-    //this.load.spritesheet('warrior', 'spriteSheet/warrior.png', 20, 48);
-  }
+  preload() {}
 
   create() {
     const map = this.make.tilemap({ key: 'dungeon' });
@@ -17,17 +15,18 @@ export default class Game extends Phaser.Scene {
     const wallsLayer = map.createLayer('Walls', tileset);
     const objectsLayer = map.createLayer('objects', tileset);
 
-    // wallsLayer.setCollisionByProperty({ collide: true });
+    wallsLayer.setCollisionByProperty({ collide: true });
 
-    // const debugGraphics = this.add.graphics().setAlpha(0.7);
+    const debugGraphics = this.add.graphics().setAlpha(0.7);
 
-    // wallsLayer.renderDebug(debugGraphics, {
-    //   tileColor: null,
-    //   collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
-    //   faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
-    // });
+    wallsLayer.renderDebug(debugGraphics, {
+      tileColor: null,
+      collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
+      faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
+    });
 
-    const warrior = this.add.sprite(64, 128, 'warrior', 'idle-down.png');
+    this.createCursor();
+    this.createWarrior();
 
     /***************  create idle animation ****************/
     this.anims.create({
@@ -101,6 +100,32 @@ export default class Game extends Phaser.Scene {
       frameRate: 12,
     });
 
-    warrior.anims.play('warrior-walk-right');
+    this.warrior.anims.play('warrior-idle-down');
+  }
+  createWarrior() {
+    this.warrior = this.physics.add.sprite(64, 128, 'warrior', 'idle-down.png');
+    // this.warrior.setBounce(0.2);
+    // this.warrior.setCollideWorldBounds(true);
+  }
+  createCursor() {
+    this.cursors = this.input.keyboard.createCursorKeys();
+  }
+
+  update() {
+    const speed = 100;
+    if (this.cursors.left.isDown) {
+      this.warrior.play('warrior-walk-left');
+      this.warrior.setVelocityX(-speed);
+    } else if (this.cursors.right.isDown) {
+      this.warrior.play('warrior-walk-right');
+      this.warrior.setVelocityX(speed);
+    }
+    if (this.cursors.up.isDown) {
+      this.warrior.play('warrior-walk-up');
+      this.warrior.setVelocityY(-speed);
+    } else if (this.cursors.down.isDown) {
+      this.warrior.play('warrior-walk-down');
+      this.warrior.setVelocityY(speed);
+    }
   }
 }
