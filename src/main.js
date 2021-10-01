@@ -6,12 +6,12 @@ import Preloader from './scenes/Preloader';
 const config = {
   type: Phaser.AUTO,
   width: 800,
-  height: 500,
+  height: 400,
 
   physics: {
     default: 'arcade',
     arcade: {
-      debug: true,
+      // debug: true,
       gravity: { y: 0 },
     },
   },

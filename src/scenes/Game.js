@@ -3,6 +3,8 @@ import Phaser from 'phaser';
 export default class Game extends Phaser.Scene {
   constructor() {
     super('game');
+
+    this.facingLeft = false;
   }
 
   preload() {}
@@ -17,17 +19,62 @@ export default class Game extends Phaser.Scene {
 
     wallsLayer.setCollisionByProperty({ collide: true });
 
-    const debugGraphics = this.add.graphics().setAlpha(0.7);
-
-    wallsLayer.renderDebug(debugGraphics, {
-      tileColor: null,
-      collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
-      faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
-    });
-
     this.createCursor();
     this.createWarrior();
+    this.createAnimations();
+    this.createEnemy();
 
+    this.physics.add.collider(this.warrior, wallsLayer);
+
+    this.cameras.main.startFollow(this.warrior, true);
+  }
+  createWarrior() {
+    this.warrior = this.physics.add.sprite(64, 128, 'warrior', 'idle-down.png');
+    this.warrior.displayWidth = 20;
+    this.warrior.scaleY = this.warrior.scaleX;
+  }
+  createEnemy() {
+    this.wizzard = this.add.sprite(
+      64,
+      356,
+      'wizzard',
+      'wizzard_f_idle_anim_f0.png'
+    );
+
+    // enemy animations ///
+    this.anims.create({
+      key: 'wizzard-idle',
+      frames: this.anims.generateFrameNames('wizzard', {
+        start: 0,
+        end: 3,
+        prefix: 'wizzard_f_idle_anim_',
+        suffix: '.png',
+      }),
+      repeat: -1,
+      frameRate: 10,
+    });
+    this.anims.create({
+      key: 'wizzard-run',
+      frames: this.anims.generateFrameNames('wizzard', {
+        start: 0,
+        end: 3,
+        prefix: 'wizzard_f_run_anim_f',
+        suffix: '.png',
+      }),
+      repeat: -1,
+      frameRate: 10,
+    });
+
+    this.wizzard.anims.play('wizzard-run');
+
+    /***************  create animations ****************/
+  }
+
+  createCursor() {
+    this.cursors = this.input.keyboard.createCursorKeys();
+  }
+
+  createAnimations() {
     /***************  create idle animation ****************/
     this.anims.create({
       key: 'warrior-idle-down',
@@ -99,33 +146,37 @@ export default class Game extends Phaser.Scene {
       repeat: -1,
       frameRate: 12,
     });
-
-    this.warrior.anims.play('warrior-idle-down');
-  }
-  createWarrior() {
-    this.warrior = this.physics.add.sprite(64, 128, 'warrior', 'idle-down.png');
-    // this.warrior.setBounce(0.2);
-    // this.warrior.setCollideWorldBounds(true);
-  }
-  createCursor() {
-    this.cursors = this.input.keyboard.createCursorKeys();
   }
 
   update() {
     const speed = 100;
+
     if (this.cursors.left.isDown) {
-      this.warrior.play('warrior-walk-left');
+      if (!this.facingLeft) {
+        this.flipX = !this.flipX;
+        this.facingLeft = true;
+      }
       this.warrior.setVelocityX(-speed);
+      this.warrior.play('warrior-walk-left', true); // including true shows character movement
     } else if (this.cursors.right.isDown) {
-      this.warrior.play('warrior-walk-right');
+      if (!this.facingLeft) {
+        this.flipX = !this.flipX;
+        this.facingLeft = false;
+      }
+      this.warrior.play('warrior-walk-right', true);
       this.warrior.setVelocityX(speed);
-    }
-    if (this.cursors.up.isDown) {
-      this.warrior.play('warrior-walk-up');
+    } else if (this.cursors.up.isDown) {
+      this.warrior.play('warrior-walk-up', true);
       this.warrior.setVelocityY(-speed);
     } else if (this.cursors.down.isDown) {
-      this.warrior.play('warrior-walk-down');
+      this.warrior.play('warrior-walk-down', true);
       this.warrior.setVelocityY(speed);
+    } else {
+      // const parts = this.warrior.anims.currentAnim.key.split('-');
+      // parts[1] = 'idle';
+      // this.warrior.play(parts.join('-'));
+      this.warrior.anims.play('warrior-idle-down');
+      this.warrior.setVelocity(0, 0);
     }
   }
 }
