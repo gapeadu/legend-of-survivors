@@ -27,15 +27,80 @@ export default class Game extends Phaser.Scene {
     //   faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
     // });
 
-    const warrior = this.add.sprite(64, 64, 'warrior', 'warrior-idle-down.png');
+    const warrior = this.add.sprite(64, 128, 'warrior', 'idle-down.png');
 
-    // this.anims.create({
-    //   key: 'warrior-idle-down',
-    //   frames: this.anims.generateFrameNumbers('warrior', {
-    //     start: 24,
-    //     end: 25,
-    //   }),
-    //   repeat: -1,
-    // });
+    /***************  create idle animation ****************/
+    this.anims.create({
+      key: 'warrior-idle-down',
+      frames: [{ key: 'warrior', frame: 'idle-down.png' }],
+    });
+
+    this.anims.create({
+      key: 'warrior-idle-up',
+      frames: [{ key: 'warrior', frame: 'idle-up.png' }],
+    });
+
+    this.anims.create({
+      key: 'warrior-idle-left',
+      frames: [{ key: 'warrior', frame: 'idle-left.png' }],
+    });
+
+    this.anims.create({
+      key: 'warrior-idle-right',
+      frames: [{ key: 'warrior', frame: 'idle-right.png' }],
+    });
+
+    /***************  create walk animation ****************/
+
+    this.anims.create({
+      key: 'warrior-walk-down',
+      //generate an array of frames
+      frames: this.anims.generateFrameNames('warrior', {
+        start: 0,
+        end: 5,
+        prefix: 'walk-down-',
+        suffix: '.png',
+      }),
+      repeat: -1,
+      frameRate: 12,
+    });
+
+    this.anims.create({
+      key: 'warrior-walk-up',
+      frames: this.anims.generateFrameNames('warrior', {
+        start: 0,
+        end: 5,
+        prefix: 'walk-up-',
+        suffix: '.png',
+      }),
+      repeat: -1,
+      frameRate: 12,
+    });
+
+    this.anims.create({
+      key: 'warrior-walk-left',
+      frames: this.anims.generateFrameNames('warrior', {
+        start: 0,
+        end: 5,
+        prefix: 'walk-left-',
+        suffix: '.png',
+      }),
+      repeat: -1,
+      frameRate: 12,
+    });
+
+    this.anims.create({
+      key: 'warrior-walk-right',
+      frames: this.anims.generateFrameNames('warrior', {
+        start: 0,
+        end: 5,
+        prefix: 'walk-right-',
+        suffix: '.png',
+      }),
+      repeat: -1,
+      frameRate: 12,
+    });
+
+    warrior.anims.play('warrior-walk-right');
   }
 }

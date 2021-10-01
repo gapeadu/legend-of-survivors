@@ -17,13 +17,16 @@ export default class Preloader extends Phaser.Scene {
   }
 
   create() {
-    this.add.text(400, 250, 'Welcome Brave Warrior!').setOrigin(0.5, 0.5);
-    this.time.addEvent({
-      delay: 3000,
-      loop: false,
-      callback: () => {
-        this.scene.start('game');
-      },
-    });
+    /* commented out for now so I can focus on the player */
+    // this.add.text(400, 250, 'Welcome Brave Warrior!').setOrigin(0.5, 0.5);
+    // this.time.addEvent({
+    //   delay: 3000,
+    //   loop: false,
+    //   callback: () => {
+    //     this.scene.start('game');
+    //   },
+    // });
+
+    this.scene.start('game');
   }
 }

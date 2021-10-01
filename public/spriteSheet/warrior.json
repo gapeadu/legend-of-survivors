@@ -1,6 +1,6 @@
 {
   "frames": {
-    "warrior-attack-up-3.png": {
+    "attack-up-3.png": {
       "frame": {
         "x": 0,
         "y": 0,
@@ -24,7 +24,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-down-3.png": {
+    "attack-down-3.png": {
       "frame": {
         "x": 22,
         "y": 0,
@@ -48,7 +48,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-down-2.png": {
+    "attack-down-2.png": {
       "frame": {
         "x": 44,
         "y": 0,
@@ -72,7 +72,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-up-2.png": {
+    "attack-up-2.png": {
       "frame": {
         "x": 22,
         "y": 14,
@@ -96,7 +96,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-left-1.png": {
+    "attack-left-1.png": {
       "frame": {
         "x": 0,
         "y": 16,
@@ -120,7 +120,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-right-4.png": {
+    "attack-right-4.png": {
       "frame": {
         "x": 64,
         "y": 0,
@@ -144,7 +144,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-up-1.png": {
+    "attack-up-1.png": {
       "frame": {
         "x": 80,
         "y": 0,
@@ -168,7 +168,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-down-0.png": {
+    "attack-down-0.png": {
       "frame": {
         "x": 64,
         "y": 16,
@@ -192,7 +192,7 @@
         "y": 0.5
       }
     },
-    "warrior-idle-down.png": {
+    "idle-down.png": {
       "frame": {
         "x": 42,
         "y": 19,
@@ -216,7 +216,7 @@
         "y": 0.5
       }
     },
-    "warrior-idle-up.png": {
+    "idle-up.png": {
       "frame": {
         "x": 16,
         "y": 30,
@@ -240,7 +240,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-down-1.png": {
+    "attack-down-1.png": {
       "frame": {
         "x": 30,
         "y": 30,
@@ -264,7 +264,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-up-0.png": {
+    "attack-up-0.png": {
       "frame": {
         "x": 0,
         "y": 32,
@@ -288,7 +288,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-left-0.png": {
+    "attack-left-0.png": {
       "frame": {
         "x": 42,
         "y": 35,
@@ -312,7 +312,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-right-5.png": {
+    "attack-right-5.png": {
       "frame": {
         "x": 0,
         "y": 46,
@@ -336,7 +336,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-down-0.png": {
+    "walk-down-0.png": {
       "frame": {
         "x": 13,
         "y": 46,
@@ -360,7 +360,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-down-1.png": {
+    "walk-down-1.png": {
       "frame": {
         "x": 26,
         "y": 49,
@@ -384,7 +384,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-down-3.png": {
+    "walk-down-3.png": {
       "frame": {
         "x": 0,
         "y": 62,
@@ -408,7 +408,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-down-4.png": {
+    "walk-down-4.png": {
       "frame": {
         "x": 13,
         "y": 62,
@@ -432,7 +432,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-down-2.png": {
+    "walk-down-2.png": {
       "frame": {
         "x": 94,
         "y": 0,
@@ -456,7 +456,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-down-5.png": {
+    "walk-down-5.png": {
       "frame": {
         "x": 107,
         "y": 0,
@@ -480,7 +480,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-up-0.png": {
+    "walk-up-0.png": {
       "frame": {
         "x": 120,
         "y": 0,
@@ -504,7 +504,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-up-1.png": {
+    "walk-up-1.png": {
       "frame": {
         "x": 94,
         "y": 14,
@@ -528,7 +528,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-up-3.png": {
+    "walk-up-3.png": {
       "frame": {
         "x": 106,
         "y": 14,
@@ -552,7 +552,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-up-4.png": {
+    "walk-up-4.png": {
       "frame": {
         "x": 78,
         "y": 18,
@@ -576,7 +576,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-up-2.png": {
+    "walk-up-2.png": {
       "frame": {
         "x": 78,
         "y": 34,
@@ -600,7 +600,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-up-5.png": {
+    "walk-up-5.png": {
       "frame": {
         "x": 56,
         "y": 32,
@@ -624,7 +624,7 @@
         "y": 0.5
       }
     },
-    "warrior-idle-left.png": {
+    "idle-left.png": {
       "frame": {
         "x": 68,
         "y": 32,
@@ -648,7 +648,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-left-3.png": {
+    "attack-left-3.png": {
       "frame": {
         "x": 55,
         "y": 46,
@@ -672,7 +672,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-right-0.png": {
+    "attack-right-0.png": {
       "frame": {
         "x": 39,
         "y": 51,
@@ -696,7 +696,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-left-2.png": {
+    "attack-left-2.png": {
       "frame": {
         "x": 26,
         "y": 65,
@@ -720,7 +720,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-right-3.png": {
+    "attack-right-3.png": {
       "frame": {
         "x": 0,
         "y": 78,
@@ -744,7 +744,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-left-0.png": {
+    "walk-left-0.png": {
       "frame": {
         "x": 11,
         "y": 78,
@@ -768,7 +768,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-right-5.png": {
+    "walk-right-5.png": {
       "frame": {
         "x": 132,
         "y": 0,
@@ -792,7 +792,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-left-5.png": {
+    "walk-left-5.png": {
       "frame": {
         "x": 143,
         "y": 0,
@@ -816,7 +816,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-right-0.png": {
+    "walk-right-0.png": {
       "frame": {
         "x": 154,
         "y": 0,
@@ -840,7 +840,7 @@
         "y": 0.5
       }
     },
-    "warrior-idle-right.png": {
+    "idle-right.png": {
       "frame": {
         "x": 165,
         "y": 0,
@@ -864,7 +864,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-left-1.png": {
+    "walk-left-1.png": {
       "frame": {
         "x": 143,
         "y": 14,
@@ -888,7 +888,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-left-3.png": {
+    "walk-left-3.png": {
       "frame": {
         "x": 153,
         "y": 14,
@@ -912,7 +912,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-right-2.png": {
+    "walk-right-2.png": {
       "frame": {
         "x": 118,
         "y": 16,
@@ -936,7 +936,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-right-4.png": {
+    "walk-right-4.png": {
       "frame": {
         "x": 128,
         "y": 16,
@@ -960,7 +960,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-left-4.png": {
+    "walk-left-4.png": {
       "frame": {
         "x": 90,
         "y": 30,
@@ -984,7 +984,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-right-1.png": {
+    "walk-right-1.png": {
       "frame": {
         "x": 100,
         "y": 30,
@@ -1008,7 +1008,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-left-2.png": {
+    "walk-left-2.png": {
       "frame": {
         "x": 175,
         "y": 0,
@@ -1032,7 +1032,7 @@
         "y": 0.5
       }
     },
-    "warrior-walk-right-3.png": {
+    "walk-right-3.png": {
       "frame": {
         "x": 185,
         "y": 0,
@@ -1056,7 +1056,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-down-4.png": {
+    "attack-down-4.png": {
       "frame": {
         "x": 22,
         "y": 0,
@@ -1080,7 +1080,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-down-5.png": {
+    "attack-down-5.png": {
       "frame": {
         "x": 22,
         "y": 0,
@@ -1104,7 +1104,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-left-4.png": {
+    "attack-left-4.png": {
       "frame": {
         "x": 55,
         "y": 46,
@@ -1128,7 +1128,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-left-5.png": {
+    "attack-left-5.png": {
       "frame": {
         "x": 55,
         "y": 46,
@@ -1152,7 +1152,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-right-1.png": {
+    "attack-right-1.png": {
       "frame": {
         "x": 39,
         "y": 51,
@@ -1176,7 +1176,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-right-2.png": {
+    "attack-right-2.png": {
       "frame": {
         "x": 39,
         "y": 51,
@@ -1200,7 +1200,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-up-4.png": {
+    "attack-up-4.png": {
       "frame": {
         "x": 0,
         "y": 0,
@@ -1224,7 +1224,7 @@
         "y": 0.5
       }
     },
-    "warrior-attack-up-5.png": {
+    "attack-up-5.png": {
       "frame": {
         "x": 0,
         "y": 0,

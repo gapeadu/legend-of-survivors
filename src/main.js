@@ -5,7 +5,7 @@ import Preloader from './scenes/Preloader';
 
 const config = {
   type: Phaser.AUTO,
-  width: 1000,
+  width: 800,
   height: 500,
 
   physics: {
