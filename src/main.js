@@ -5,6 +5,7 @@ import Preloader from './scenes/Preloader';
 
 const config = {
   type: Phaser.AUTO,
+  backgroundColor: '#0335fc',
   width: 800,
   height: 400,
 

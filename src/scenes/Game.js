@@ -47,7 +47,7 @@ export default class Game extends Phaser.Scene {
       frames: this.anims.generateFrameNames('wizzard', {
         start: 0,
         end: 3,
-        prefix: 'wizzard_f_idle_anim_',
+        prefix: 'wizzard_f_idle_anim_f',
         suffix: '.png',
       }),
       repeat: -1,
@@ -172,11 +172,8 @@ export default class Game extends Phaser.Scene {
       this.warrior.play('warrior-walk-down', true);
       this.warrior.setVelocityY(speed);
     } else {
-      // const parts = this.warrior.anims.currentAnim.key.split('-');
-      // parts[1] = 'idle';
-      // this.warrior.play(parts.join('-'));
-      this.warrior.anims.play('warrior-idle-down');
-      this.warrior.setVelocity(0, 0);
+      // when I stop moving
+      this.warrior.play('warrior-idle-down');
     }
   }
 }
