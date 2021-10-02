@@ -25,8 +25,17 @@ export default class Game extends Phaser.Scene {
     this.createEnemy();
 
     this.physics.add.collider(this.warrior, wallsLayer);
+    this.physics.add.collider(this.warrior, this.wizzard);
 
     this.cameras.main.startFollow(this.warrior, true);
+
+    const debugGraphics = this.add.graphics().setAlpha(0.7);
+
+    wallsLayer.renderDebug(debugGraphics, {
+      tileColor: null,
+      collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
+      faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
+    });
   }
   createWarrior() {
     this.warrior = this.physics.add.sprite(64, 128, 'warrior', 'idle-down.png');
@@ -150,6 +159,7 @@ export default class Game extends Phaser.Scene {
 
   update() {
     const speed = 100;
+    let currentDirection = '';
 
     if (this.cursors.left.isDown) {
       if (!this.facingLeft) {
@@ -157,23 +167,27 @@ export default class Game extends Phaser.Scene {
         this.facingLeft = true;
       }
       this.warrior.setVelocityX(-speed);
-      this.warrior.play('warrior-walk-left', true); // including true shows character movement
+      this.warrior.play('warrior-walk-left', true);
+      currentDirection = 'warrior-idle-left';
     } else if (this.cursors.right.isDown) {
       if (!this.facingLeft) {
         this.flipX = !this.flipX;
         this.facingLeft = false;
       }
-      this.warrior.play('warrior-walk-right', true);
       this.warrior.setVelocityX(speed);
+      currentDirection = 'warrior-idle-right';
+      this.warrior.play('warrior-walk-right', true);
     } else if (this.cursors.up.isDown) {
-      this.warrior.play('warrior-walk-up', true);
       this.warrior.setVelocityY(-speed);
+      currentDirection = 'warrior-idle-up';
+      this.warrior.play('warrior-walk-up', true);
     } else if (this.cursors.down.isDown) {
-      this.warrior.play('warrior-walk-down', true);
       this.warrior.setVelocityY(speed);
+      currentDirection = 'warrior-idle-down';
+      this.warrior.play('warrior-walk-down', true);
     } else {
-      // when I stop moving
-      this.warrior.play('warrior-idle-down');
+      this.warrior.play(currentDirection);
+      this.warrior.setVelocity(0, 0);
     }
   }
 }
