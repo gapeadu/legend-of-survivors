@@ -7,7 +7,7 @@ const config = {
   type: Phaser.AUTO,
   backgroundColor: 'rgba(209, 35, 0, 0.5)',
   width: 800,
-  height: 400,
+  height: 450,
 
   physics: {
     default: 'arcade',
@@ -18,7 +18,7 @@ const config = {
   },
   scene: [Preloader, Game],
   scale: {
-    zoom: 2.5,
+    zoom: 1.5,
   },
 };
 
