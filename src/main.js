@@ -2,10 +2,11 @@ import Phaser from 'phaser';
 
 import Game from './scenes/Game';
 import Preloader from './scenes/Preloader';
+import MenuScene from './scenes/MenuScene';
 
 const config = {
   type: Phaser.AUTO,
-  backgroundColor: 'rgba(209, 35, 0, 0.5)',
+  backgroundColor: 'rgba(158, 42, 0, 0.5)',
   width: 800,
   height: 450,
 
@@ -17,9 +18,11 @@ const config = {
     },
   },
   scene: [Preloader, Game],
-  scale: {
-    zoom: 1.5,
-  },
+  // scale: {
+  //   mode: Phaser.Scale.FIT,
+
+  //   // zoom: 1.5,
+  // },
 };
 
 export default new Phaser.Game(config);
