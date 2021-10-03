@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Phaser from 'phaser';
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
@@ -10,8 +11,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.texture = texture;
 
     this.scene.add.existing(this);
-    // this.scene.physics.world.enabledBody(this);
-    this.facingLeft = false;
+    this.scene.physics.world.enableBody(this, 0);
 
     const { LEFT, RIGHT, UP, DOWN, W, A, S, D } =
       Phaser.Input.Keyboard.KeyCodes;
@@ -105,20 +105,21 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.createAnimations();
 
     const { keys } = this; //output: this.keys
-    const speed = 2;
+    const speed = 100;
+    this.body.setVelocity(0);
 
     //animations
     if (keys.left.isDown || keys.a.isDown) {
-      this.x -= speed;
+      this.body.setVelocityX(-speed);
       this.play('warrior-walk-left', true);
     } else if (keys.right.isDown || keys.d.isDown) {
-      this.x += speed;
+      this.body.setVelocityX(speed);
       this.play('warrior-walk-right', true);
     } else if (keys.up.isDown || keys.w.isDown) {
-      this.y -= speed;
+      this.body.setVelocityY(-speed);
       this.play('warrior-walk-up', true);
     } else if (keys.down.isDown || keys.s.isDown) {
-      this.y += speed;
+      this.body.setVelocityY(speed);
       this.play('warrior-walk-down', true);
     } else {
       this.anims.stop();

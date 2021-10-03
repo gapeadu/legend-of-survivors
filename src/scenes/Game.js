@@ -16,33 +16,35 @@ export default class Game extends Phaser.Scene {
     const wallsLayer = map.createLayer('Walls', tileset);
     const objectsLayer = map.createLayer('objects', tileset);
 
-    wallsLayer.setCollisionByProperty({ collide: true });
+    wallsLayer.setCollisionByProperty({ collides: true });
 
-    this.createWarrior();
-    this.createEnemy();
-
-    this.physics.add.collider(this.warrior, wallsLayer);
-    // this.physics.add.collider(this.warrior, this.wizzard);
-
-    this.cameras.main.startFollow(this.warrior, true);
-
-    const debugGraphics = this.add.graphics().setAlpha(0.7);
-
-    wallsLayer.renderDebug(debugGraphics, {
-      tileColor: null,
-      collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
-      faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
-    });
-  }
-  createWarrior() {
+    // player instance
     this.warrior = this.physics.add.existing(
       new Player(this, 64, 128, 'warrior', 'idle-down.png')
     );
     this.warrior.displayWidth = 20;
     this.warrior.scaleY = this.warrior.scaleX;
-  }
+    this.warrior.setImmovable(true);
+
+    this.physics.add.collider(this.warrior, wallsLayer);
+
+    this.physics.add.collider(this.warrior, this.wizzard);
+    this.cameras.main.startFollow(this.warrior, true);
+
+    this.createEnemy();
+    //debugging
+    // const debugGraphics = this.add.graphics().setAlpha(0.7);
+
+    // wallsLayer.renderDebug(debugGraphics, {
+    //   tileColor: null,
+    //   collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
+    //   faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
+    // });
+  } //end of create
+
+  // createWarrior() {}
   createEnemy() {
-    this.wizzard = this.add.sprite(
+    this.wizzard = this.physics.add.sprite(
       64,
       356,
       'wizzard',
