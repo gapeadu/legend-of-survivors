@@ -10,7 +10,23 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.texture = texture;
 
     this.scene.add.existing(this);
-  }
+    // this.scene.physics.world.enabledBody(this);
+    this.facingLeft = false;
+
+    const { LEFT, RIGHT, UP, DOWN, W, A, S, D } =
+      Phaser.Input.Keyboard.KeyCodes;
+    this.keys = this.scene.input.keyboard.addKeys({
+      left: LEFT,
+      right: RIGHT,
+      up: UP,
+      down: DOWN,
+      w: W,
+      a: A,
+      s: S,
+      d: D,
+    });
+  } //end of constructor
+
   createAnimations() {
     /***************  create idle animation ****************/
     this.anims.create({
@@ -83,60 +99,32 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       repeat: -1,
       frameRate: 12,
     });
-  }
-
-  // inputKeys() {
-  //   const { LEFT, RIGHT, UP, DOWN, W, A, S, D } =
-  //     Phaser.Input.Keyboard.KeyCodes;
-  //   (this.keys = this),
-  //     this.scene.input.keyboard.addKeys({
-  //       left: LEFT,
-  //       right: RIGHT,
-  //       up: UP,
-  //       down: DOWN,
-  //       w: W,
-  //       a: A,
-  //       s: S,
-  //       d: D,
-  //     });
-
-  //   const { keys } = this; //output: this.keys
-  //   console.log('keys', keys); //undefned
-  //   const speed = 100;
-
-  //   let currentDirection = '';
-  //   if (keys.left.isDown || keys.a.isDown) {
-  //     if (!this.facingLeft) {
-  //       this.flipX = !this.flipX;
-  //       this.facingLeft = true;
-  //     }
-  //     this.warrior.body.setVelocityX(-speed);
-  //     this.warrior.play('warrior-walk-left', true);
-  //     currentDirection = 'warrior-idle-left';
-  //   } else if (this.cursors.right.isDown) {
-  //     if (!this.facingLeft) {
-  //       this.flipX = !this.flipX;
-  //       this.facingLeft = false;
-  //     }
-  //     this.warrior.body.setVelocityX(speed);
-  //     currentDirection = 'warrior-idle-right';
-  //     this.warrior.play('warrior-walk-right', true);
-  //   } else if (this.cursors.up.isDown) {
-  //     this.warrior.body.setVelocityY(-speed);
-  //     currentDirection = 'warrior-idle-up';
-  //     this.warrior.play('warrior-walk-up', true);
-  //   } else if (this.cursors.down.isDown) {
-  //     this.warrior.body.setVelocityY(speed);
-  //     currentDirection = 'warrior-idle-down';
-  //     this.warrior.play('warrior-walk-down', true);
-  //   } else {
-  //     this.warrior.play(currentDirection);
-  //     this.warrior.body.setVelocity(0, 0);
-  //   }
-  }
+  } //end of create animations
 
   update(time, delta) {
-    this.inputKeys();
-    
+    this.createAnimations();
+    // console.log('body', this.body.velocity);
+
+    //let previousVelocity = this.body.velocity.clone();
+
+    const { keys } = this; //output: this.keys
+    const speed = 2;
+
+    //animations
+    if (keys.left.isDown || keys.a.isDown) {
+      this.x -= speed;
+      this.play('warrior-walk-left', true);
+    } else if (keys.right.isDown || keys.d.isDown) {
+      this.x += speed;
+      this.play('warrior-walk-right', true);
+    } else if (keys.up.isDown || keys.w.isDown) {
+      this.y -= speed;
+      this.play('warrior-walk-up', true);
+    } else if (keys.down.isDown || keys.s.isDown) {
+      this.y += speed;
+      this.play('warrior-walk-down', true);
+    } else {
+      this.play('idle');
+    }
   }
 }
