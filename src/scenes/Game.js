@@ -18,18 +18,26 @@ export default class Game extends Phaser.Scene {
 
     wallsLayer.setCollisionByProperty({ collide: true });
 
-    // this.createCursor();
     this.createWarrior();
-    // this.createAnimations();
     this.createEnemy();
 
     this.physics.add.collider(this.warrior, wallsLayer);
     // this.physics.add.collider(this.warrior, this.wizzard);
 
     this.cameras.main.startFollow(this.warrior, true);
+
+    const debugGraphics = this.add.graphics().setAlpha(0.7);
+
+    wallsLayer.renderDebug(debugGraphics, {
+      tileColor: null,
+      collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
+      faceColor: new Phaser.Display.Color(40, 39, 37, 255), // Color of colliding face edges
+    });
   }
   createWarrior() {
-    this.warrior = new Player(this, 64, 128, 'warrior', 'idle-down.png');
+    this.warrior = this.physics.add.existing(
+      new Player(this, 64, 128, 'warrior', 'idle-down.png')
+    );
     this.warrior.displayWidth = 20;
     this.warrior.scaleY = this.warrior.scaleX;
   }
@@ -67,13 +75,7 @@ export default class Game extends Phaser.Scene {
     });
 
     this.wizzard.anims.play('wizzard-run');
-
-    /***************  create animations ****************/
   }
-
-  // createCursor() {
-  //   this.cursors = this.input.keyboard.createCursorKeys();
-  // }
 
   update() {
     this.warrior.update();

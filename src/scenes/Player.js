@@ -103,9 +103,6 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
   update(time, delta) {
     this.createAnimations();
-    // console.log('body', this.body.velocity);
-
-    //let previousVelocity = this.body.velocity.clone();
 
     const { keys } = this; //output: this.keys
     const speed = 2;
@@ -124,7 +121,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       this.y += speed;
       this.play('warrior-walk-down', true);
     } else {
-      this.play('idle');
+      this.anims.stop();
     }
   }
 }
