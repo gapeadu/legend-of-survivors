@@ -50,6 +50,9 @@ export default class Game extends Phaser.Scene {
       'wizzard',
       'wizzard_f_idle_anim_f0.png'
     );
+    this.wizzard.setImmovable(true);
+
+    console.log('wizzard', this.wizzard);
 
     // enemy animations ///
 

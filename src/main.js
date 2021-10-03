@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 import Game from './scenes/Game';
 import Preloader from './scenes/Preloader';
-import MenuScene from './scenes/MenuScene';
+import TitleScene from './scenes/TitleScene';
 
 const config = {
   type: Phaser.AUTO,
@@ -19,6 +19,7 @@ const config = {
   },
   scene: [Preloader, Game],
   // scale: {
+  //   parent: 'mygame',
   //   mode: Phaser.Scale.FIT,
 
   //   // zoom: 1.5,
