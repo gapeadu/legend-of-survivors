@@ -23,33 +23,25 @@ export default class Preloader extends Phaser.Scene {
       y: height / 2 - 50,
       text: 'Game Loading...',
       style: {
-        font: '30px monospace',
+        font: '30px Inconsolata',
+        color: '#ffffff',
       },
     });
 
     loadingText.setOrigin(0.5, 0.5);
 
+    //percentage bar
     let percentText = this.make.text({
       x: width / 2,
       y: height / 2 - 5,
       text: '0%',
       style: {
-        font: '20px monospace',
+        font: '20px Inconsolata',
+        color: '#ffffff',
       },
     });
 
     percentText.setOrigin(0.5, 0.5);
-
-    let assetText = this.make.text({
-      x: width / 2,
-      y: height / 2 + 50,
-      text: '',
-      style: {
-        font: '18px monospace',
-      },
-    });
-
-    assetText.setOrigin(0.5, 0.5);
 
     // update progress bar
     this.load.on('progress', function (value) {
@@ -59,7 +51,7 @@ export default class Preloader extends Phaser.Scene {
       progressBar.fillRect(250, 280, 300 * value, 30);
     });
 
-    // remove progress bar when loading has completed
+    // remove loading screen when loading has completed
     this.load.on(
       'complete',
       function () {
@@ -95,18 +87,6 @@ export default class Preloader extends Phaser.Scene {
       'spriteSheet/enemy/wizzard.json'
     );
   } //end of preload
-
-  // create() {
-  //   /* commented out for now so I can focus on the player */
-  //   this.add.text(400, 200, 'Welcome Brave Warrior!').setOrigin(0.5, 0.5);
-  //   this.time.addEvent({
-  //     delay: 3000,
-  //     loop: false,
-  //     callback: () => {
-  //       this.scene.start('title');
-  //     },
-  //   });
-  // }
 
   ready() {
     this.readyCount++;
