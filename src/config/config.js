@@ -9,15 +9,8 @@ export default {
   physics: {
     default: 'arcade',
     arcade: {
-      debug: true,
+      // debug: true,
       gravity: { y: 0 },
     },
   },
-  //   scene: [Preloader, TitleScene, Game],
-  // scale: {
-  //   parent: 'mygame',
-  //   mode: Phaser.Scale.FIT,
-
-  //   // zoom: 1.5,
-  // },
 };

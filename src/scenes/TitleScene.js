@@ -3,62 +3,28 @@ import config from '../config/config';
 
 export default class TitleScene extends Phaser.Scene {
   constructor() {
-    super('Title');
+    super('title');
   }
 
   create() {
-    // Game
+    // create new sprite and set Interactive
     this.gameButton = this.add.sprite(100, 200, 'blueButton1').setInteractive();
+
+    //center ui buttons
     this.centerButton(this.gameButton, 1);
 
     this.gameText = this.add.text(0, 0, 'Play', {
       fontSize: '32px',
       fill: '#fff',
     });
+
+    //center text inside of button
     this.centerButtonText(this.gameText, this.gameButton);
 
     this.gameButton.on(
       'pointerdown',
       function (pointer) {
-        this.scene.start('Game');
-      }.bind(this)
-    );
-
-    // Options
-    this.optionsButton = this.add
-      .sprite(300, 200, 'blueButton1')
-      .setInteractive();
-    this.centerButton(this.optionsButton);
-
-    this.optionsText = this.add.text(0, 0, 'Options', {
-      fontSize: '32px',
-      fill: '#fff',
-    });
-    this.centerButtonText(this.optionsText, this.optionsButton);
-
-    this.optionsButton.on(
-      'pointerdown',
-      function (pointer) {
-        this.scene.start('Options');
-      }.bind(this)
-    );
-
-    // Credits
-    this.creditsButton = this.add
-      .sprite(300, 200, 'blueButton1')
-      .setInteractive();
-    this.centerButton(this.creditsButton, -1);
-
-    this.creditsText = this.add.text(0, 0, 'Credits', {
-      fontSize: '32px',
-      fill: '#fff',
-    });
-    this.centerButtonText(this.creditsText, this.creditsButton);
-
-    this.creditsButton.on(
-      'pointerdown',
-      function (pointer) {
-        this.scene.start('Credits');
+        this.scene.start('game');
       }.bind(this)
     );
 

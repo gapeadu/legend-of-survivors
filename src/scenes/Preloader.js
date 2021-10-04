@@ -52,29 +52,29 @@ export default class Preloader extends Phaser.Scene {
     });
 
     // remove loading screen when loading has completed
-    // this.load.on(
-    //   'complete',
-    //   function () {
-    //     progressBar.destroy();
-    //     progressBox.destroy();
-    //     loadingText.destroy();
-    //     percentText.destroy();
-    //     this.ready();
-    //   }.bind(this)
-    // );
+    this.load.on(
+      'complete',
+      function () {
+        progressBar.destroy();
+        progressBox.destroy();
+        loadingText.destroy();
+        percentText.destroy();
+        this.ready();
+      }.bind(this)
+    );
 
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
     //load assets needed in game
-    this.load.image('tiles', 'assets/SmoothdungeonTileset.png');
+    this.load.image('tiles', './public/assets/SmoothdungeonTileset.png');
     this.load.tilemapTiledJSON('dungeon', 'assets/dungeon_1.json');
 
-    this.load.image('blueButton1', 'assets/ui/blue_button02.png');
-    this.load.image('blueButton2', 'assets/ui/blue_button03.png');
-    this.load.image('box', 'assets/ui/grey_box.png');
-    this.load.image('checkedBox', 'assets/ui/blue_boxCheckmark.png');
+    this.load.image('blueButton1', './public/assets/ui/blue_button01.png');
+    this.load.image('blueButton2', './public/assets/ui/blue_button02.png');
+    this.load.image('box', './public/assets/ui/grey_box.png');
+    this.load.image('checkedBox', './public/assets/ui/blue_boxCheckmark.png');
 
-    this.load.image('darkCastle', 'assets/darkCastle.png');
+    this.load.image('darkCastle', './public/assets/darkCastle.png');
 
     //load textured spritesheet
     this.load.atlas(

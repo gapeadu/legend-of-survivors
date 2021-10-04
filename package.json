@@ -7,7 +7,6 @@
     "build": "webpack",
     "start": "npm run build && webpack-dev-server --port=8000"
   },
-
   "license": "MIT",
   "licenseUrl": "http://www.opensource.org/licenses/mit-license.php",
 
