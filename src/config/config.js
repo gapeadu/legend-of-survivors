@@ -13,4 +13,8 @@ export default {
       gravity: { y: 0 },
     },
   },
+  scale: {
+    // mode: Phaser.Scale.Fit,
+    zoom: 1.5,
+  },
 };

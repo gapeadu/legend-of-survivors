@@ -18,20 +18,22 @@ export default class MainScene extends Phaser.Scene {
 
     wallsLayer.setCollisionByProperty({ collides: true });
 
+    let sound = this.sound.add('spookyAudio');
+    sound.play();
+
     // player instance
     this.warrior = this.physics.add.existing(
-      new Player(this, 64, 128, 'warrior', 'idle-down.png')
+      new Player(this, 160, 64, 'warrior', 'idle-down.png')
     );
     this.warrior.displayWidth = 20;
     this.warrior.scaleY = this.warrior.scaleX;
     this.warrior.setImmovable(true);
 
     this.physics.add.collider(this.warrior, wallsLayer);
-
-    this.physics.add.collider(this.warrior, this.wizzard);
     this.cameras.main.startFollow(this.warrior, true);
 
     this.createEnemy();
+    this.physics.add.collider(this.warrior, this.wizzard);
     //debugging
     // const debugGraphics = this.add.graphics().setAlpha(0.7);
 
@@ -50,8 +52,6 @@ export default class MainScene extends Phaser.Scene {
       'wizzard_f_idle_anim_f0.png'
     );
     this.wizzard.setImmovable(true);
-
-    console.log('wizzard', this.wizzard);
 
     // enemy animations ///
 

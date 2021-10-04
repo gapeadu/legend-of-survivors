@@ -5,6 +5,7 @@ export default class Preloader extends Phaser.Scene {
     super('preloader');
   }
 
+  //called every time the scene restarts
   init() {
     this.readyCount = 0;
   }
@@ -74,7 +75,10 @@ export default class Preloader extends Phaser.Scene {
     this.load.image('box', '../public/assets/ui/grey_box.png');
     this.load.image('checkedBox', '../public/assets/ui/blue_boxCheckmark.png');
 
-    this.load.image('darkCastle', '../public/assets/darkCastle.png');
+    this.load.audio(
+      'spookyAudio',
+      '../public/assets/audio/Creepy Castle - Donkey Kong 64.mp3'
+    );
 
     //load textured spritesheet
     this.load.atlas(
