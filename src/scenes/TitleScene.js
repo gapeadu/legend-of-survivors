@@ -6,12 +6,8 @@ export default class TitleScene extends Phaser.Scene {
     super('title');
   }
 
-  //want background image to show up
-  // preload() {
-  //   this.load.image('darkCastle', '../public/assets/darkCastle.png');
-  // }
-
   create() {
+    this.add.image(400, 500, 'darkCastle');
     /************** PLAY BUTTON  *********************/
     // create new sprite and set Interactive
     this.gameButton = this.add.sprite(100, 200, 'blueButton1').setInteractive();
